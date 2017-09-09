@@ -752,15 +752,8 @@
 				КонецЕсли;
 			КонецЦикла;
 						
-			OrganizationByCriteriaValues.BoxAddress = Получатель.OrganizationBoxId;
-			ПолучательПредставление = ExchangeService.GetOrganizationBy(Токен, Syn_ЯщикОрганизации, OrganizationByCriteria, OrganizationByCriteriaValues);
-			
 			НовСтр.СтатусПолучатель = СтатусПолучатель;
-			Если ПолучательПредставление.OrganizationType = "Individual" Тогда
-				НовСтр.ЗначениеПолучатель = ПолучательПредставление.Name;
-			Иначе
-				НовСтр.ЗначениеПолучатель = ПолучательПредставление.LegalName;
-			КонецЕсли;
+			НовСтр.ЗначениеПолучатель = Получатель.OrganizationName;
 			
 			ОбластьСтрокаПолучатель.Параметры.Заполнить(НовСтр);
 			

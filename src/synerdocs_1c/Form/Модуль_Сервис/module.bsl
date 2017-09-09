@@ -1509,6 +1509,7 @@
 	Адрес.КодРегиона		= Address.RegionCode;
 	Адрес.Район				= Address.District;
 	Адрес.Город				= Address.City;
+	Адрес.НаселенныйПункт	= Address.Locality;
 	Адрес.Улица				= Address.Street;
 	Адрес.Дом				= Address.House;
 	Адрес.Квартира			= Address.Apartment;
@@ -2357,6 +2358,7 @@
 		Address.RegionCode	= Адрес.КодРегиона;
 		Address.District	= Адрес.Район;
 		Address.City		= Адрес.Город;
+		Address.Locality	= Адрес.НаселенныйПункт;
 		Address.Street		= Адрес.Улица;
 		Address.House		= Адрес.Дом;
 		Address.Apartment	= Адрес.Квартира;
@@ -2797,13 +2799,11 @@
 	Если Recipients <> Неопределено Тогда
 		
 		Для Каждого Recipient Из Recipients.MessageRecipientWithStatus Цикл
-			
-			ОписаниеОрганизации = ПолучитьОрганизацию(Recipient.OrganizationBoxId);
-			
+						
 			Получатель = ОбъектнаяМодель.Новый_ОписаниеОрганизации(
-				ОписаниеОрганизации.Наименование, 
+				Recipient.OrganizationName,
 				Recipient.OrganizationBoxId, 
-				Recipient.DepartmentId
+				Recipient.DepartmentName
 			);
 			
 			Результат.Добавить(Получатель);
