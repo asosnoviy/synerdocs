@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="windows-1251"?>
+<xs:schema xmlns="http://synerdocs.ru/cardschemas/synerdocs_cession_card_v1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:synerdocs="http://synerdocs.ru/cardschemas/synerdocs_common_document_card_v1.xsd" targetNamespace="http://synerdocs.ru/cardschemas/synerdocs_cession_card_v1.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="УступочнаяНадпись">
+		<xs:annotation>
+			<xs:documentation>Уступочная надпись</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ШаблонНадписи" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Шаблон надписи</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:maxLength value="2000"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="ПараметрыШаблона" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>Параметры шаблона</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ОписаниеПараметра" minOccurs="0" maxOccurs="20">
+								<xs:complexType>
+									<xs:annotation>
+										<xs:documentation>Описание параметра</xs:documentation>
+									</xs:annotation>
+									<xs:attribute name="Наименование" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:minLength value="1"/>
+												<xs:maxLength value="200"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="Описание" use="required">
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:minLength value="1"/>
+												<xs:maxLength value="400"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

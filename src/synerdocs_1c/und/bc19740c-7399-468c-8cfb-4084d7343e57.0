@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="INF" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="INF" attributeFormDefault="unqualified">
+	<xs:element name="Данные" type="Данные">
+		<xs:annotation>
+			<xs:documentation>Корневой элемент</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Данные">
+		<xs:annotation>
+			<xs:documentation>Тип данные</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Реквизит" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="Имя" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:minLength value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="Значение" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:minLength value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
